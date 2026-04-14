@@ -3,17 +3,17 @@ import { Landmark, Globe, Mail, MessageSquare, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="pt-32 pb-12 px-6 bg-[#08152a] relative overflow-hidden">
+    <footer className="pt-32 pb-12 px-6 bg-[#020617] relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3" />
       
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 pb-20 border-b border-white/5">
           <div className="lg:col-span-2 space-y-8">
             <div className="flex items-center gap-2">
-              <Landmark className="text-accent w-10 h-10" />
+              <Landmark className="text-blue-500 w-10 h-10" />
               <span className="text-3xl font-bold tracking-tighter font-heading text-white uppercase italic">
-                Envisage <span className="text-accent font-light">Planning</span>
+                Envisage <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text font-light">Planning</span>
               </span>
             </div>
             <p className="text-white/40 text-lg max-w-md leading-relaxed">
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-6">
               {[Globe, Mail, MessageSquare].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition-all">
+                <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-all">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
@@ -50,7 +50,7 @@ const Footer = () => {
                 placeholder="Email Address" 
                 className="bg-transparent border-none outline-none text-white text-sm w-full py-2 placeholder:text-white/20"
               />
-              <button className="text-white/40 group-hover:text-accent transition-colors">
+              <button className="text-white/40 group-hover:text-blue-400 transition-colors">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

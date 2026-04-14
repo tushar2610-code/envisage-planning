@@ -78,19 +78,19 @@ const Excellence = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 px-6 bg-[#08152a] relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-24 px-6 bg-[#020617]/90 relative overflow-hidden">
         {/* Glow behind */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-32 bg-accent/5 blur-[100px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-32 bg-blue-500/10 blur-[100px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
         <h2 className="heading text-3xl md:text-5xl lg:text-6xl font-bold font-heading text-white text-center mb-16 uppercase tracking-wider leading-tight">
-          Driving <span className="text-accent italic">Excellence</span> <br className="hidden md:block" /> In Architecture
+          Driving <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text italic">Excellence</span> <br className="hidden md:block" /> In Architecture
         </h2>
 
         <div className="glass-card w-full rounded-2xl flex flex-col md:flex-row justify-between items-center gap-12 md:gap-6 border-white/5 py-12 px-8">
           {points.map((point, index) => (
-            <div key={index} className="stat-item flex flex-col items-center text-center space-y-5 flex-1 w-full">
-              <div className="text-accent p-4 rounded-xl bg-white/5 border border-white/10 group hover:bg-accent/10 hover:border-accent/40 transition-colors">
+            <div key={index} className="stat-item flex flex-col items-center text-center space-y-5 flex-1 w-full group">
+              <div className="text-blue-400 p-4 rounded-xl bg-white/5 border border-white/10 group-hover:bg-blue-500/10 group-hover:border-blue-500/40 transition-colors shadow-[0_0_15px_rgba(59,130,246,0.05)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                 {point.icon}
               </div>
               <div 

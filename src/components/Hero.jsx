@@ -59,7 +59,7 @@ const Hero = () => {
       />
       
       {/* Dark blue gradient overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#0B1D3A]/90 via-[#132F5B]/70 to-[#0B1D3A]/90" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#020617] via-[#0B1D3A]/90 to-[#132F5B]/80" />
 
       {/* Top Left Logo */}
       <div className="absolute top-8 left-8 z-30 flex items-center gap-2">
@@ -75,7 +75,7 @@ const Hero = () => {
           ref={headingRef}
           className="text-5xl md:text-7xl lg:text-8xl font-black font-heading text-white leading-tight tracking-tight uppercase"
         >
-          We Give Shape <br className="hidden md:block" /> To <span className="text-accent italic">Dreams</span>
+          We Give Shape <br className="hidden md:block" /> To <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text italic">Dreams</span>
         </h1>
         
         <p 
@@ -87,11 +87,11 @@ const Hero = () => {
 
         {/* Buttons */}
         <div ref={buttonsRef} className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
-          <button className="relative px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-lg uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:bg-white/20 hover:border-accent hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] flex items-center justify-center">
+          <button className="relative px-10 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold rounded-lg uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:brightness-110 shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center justify-center">
             Explore Services
           </button>
           
-          <button className="relative px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white/90 font-semibold rounded-lg uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:bg-white/15 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center">
+          <button className="relative px-10 py-4 bg-white/5 backdrop-blur-md border border-white/20 text-white/90 font-semibold rounded-lg uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center">
             Contact Us
           </button>
         </div>

@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative bg-primary-dark font-body selection:bg-accent selection:text-primary-dark">
+    <div className="relative bg-[#020617] font-body selection:bg-blue-500/30 selection:text-white">
       <Navbar />
       <main>
         <section id="home">

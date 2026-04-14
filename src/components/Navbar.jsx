@@ -25,11 +25,11 @@ const Navbar = () => {
         ref={navRef}
         className="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between glass px-8 py-3 rounded-2xl relative z-50 bg-primary-dark/80 md:bg-transparent">
+        <div className="max-w-7xl mx-auto flex items-center justify-between glass px-8 py-3 rounded-2xl relative z-50 bg-[#020617]/60 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.1)]">
           <div className="flex items-center gap-2">
-            <Landmark className="text-accent w-8 h-8" />
+            <Landmark className="text-blue-500 w-8 h-8" />
             <span className="text-xl font-bold tracking-tighter font-heading text-white uppercase italic">
-              Envisage <span className="text-accent font-light">Planning</span>
+              Envisage <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text font-light">Planning</span>
             </span>
           </div>
           
@@ -39,20 +39,20 @@ const Navbar = () => {
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-white/80 hover:text-accent transition-colors tracking-wide uppercase"
+                className="text-sm font-medium text-white/70 hover:text-blue-400 transition-colors tracking-wide uppercase"
               >
                 {item}
               </a>
             ))}
           </div>
 
-          <button className="hidden md:block px-6 py-2 bg-accent/90 hover:bg-accent text-primary-dark font-bold rounded-lg transition-all text-sm uppercase tracking-wider">
+          <button className="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 hover:brightness-110 text-white font-bold rounded-lg transition-all text-sm uppercase tracking-wider hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
             Enquire Now
           </button>
 
           {/* Mobile Toggle Button */}
           <button 
-            className="md:hidden text-white hover:text-accent transition-colors"
+            className="md:hidden text-white hover:text-blue-400 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -73,7 +73,7 @@ const Navbar = () => {
               key={item} 
               href={`#${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-heading font-medium text-white hover:text-accent tracking-widest uppercase transition-colors"
+              className="text-2xl font-heading font-medium text-white hover:text-blue-400 tracking-widest uppercase transition-colors"
               style={{
                 transitionDelay: `${isOpen ? index * 100 : 0}ms`,
                 transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
@@ -85,7 +85,7 @@ const Navbar = () => {
             </a>
           ))}
           
-          <button className="mt-8 px-10 py-4 bg-accent text-primary-dark font-bold rounded-lg uppercase tracking-widest hover:scale-105 transition-transform"
+          <button className="mt-8 px-10 py-4 bg-gradient-to-r from-blue-500 to-blue-700 hover:brightness-110 text-white font-bold rounded-lg uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(59,130,246,0.3)]"
             style={{
               transitionDelay: `${isOpen ? navLinks.length * 100 : 0}ms`,
               transform: isOpen ? 'translateY(0)' : 'translateY(20px)',

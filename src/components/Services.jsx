@@ -110,13 +110,13 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="services" className="py-32 px-6 bg-primary-dark">
+    <section id="services" className="py-32 px-6 bg-[#020617]/90">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-          <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Our Expertise</span>
+          <span className="text-blue-500 text-xs font-bold uppercase tracking-[0.3em]">Our Expertise</span>
           <h2 className="text-4xl md:text-6xl font-bold font-heading text-white leading-tight uppercase">
-            Comprehensive <span className="text-accent italic">Solutions</span>
+            Comprehensive <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text italic">Solutions</span>
           </h2>
           <p className="text-white/40 leading-relaxed text-lg">
             From initial site analysis to final construction agreements, we provide a full spectrum of architectural services tailored to your needs.
@@ -128,16 +128,16 @@ const Services = () => {
           {servicesList.map((service, index) => (
             <div 
               key={index} 
-              className="service-card glass-card p-10 rounded-2xl flex flex-col gap-6 cursor-pointer group hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+              className="service-card glass-card p-10 rounded-2xl flex flex-col gap-6 cursor-pointer group"
             >
-              <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent group-hover:bg-accent/10 group-hover:scale-110 transition-all duration-300">
+              <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/10 group-hover:scale-110 transition-all duration-300">
                 {service.icon}
               </div>
               <div className="space-y-3">
-                <h3 className="text-2xl font-bold font-heading text-white uppercase group-hover:text-accent transition-colors">
+                <h3 className="text-2xl font-bold font-heading text-white uppercase group-hover:text-blue-400 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-white/50 leading-relaxed text-sm">
+                <p className="text-white/70 leading-relaxed text-sm">
                   {service.desc}
                 </p>
               </div>

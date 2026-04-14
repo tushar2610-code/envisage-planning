@@ -35,7 +35,7 @@ const Contact = () => {
   const inputClasses = "w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-lg px-4 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 font-body";
 
   return (
-    <section id="contact" className="py-32 px-6 bg-primary-dark/95 relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 bg-gradient-to-br from-[#020617] via-[#0B1D3A] to-[#132F5B] relative overflow-hidden">
       {/* Background glow decoration */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
@@ -46,7 +46,7 @@ const Contact = () => {
           <div>
             <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-4">Get In Touch</span>
             <h2 className="text-4xl md:text-6xl font-bold font-heading text-white leading-tight uppercase">
-              Let's Build <br/> <span className="text-accent italic">The Future</span>
+              Let's Build <br/> <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text italic">The Future</span>
             </h2>
             <p className="text-white/50 leading-relaxed mt-6 text-lg max-w-md">
               Whether you have a vision to realize or need expert architectural consultation, our team is ready to assist.
@@ -55,7 +55,7 @@ const Contact = () => {
 
           <div className="space-y-6 pt-4">
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-accent group-hover:bg-accent/10 transition-colors">
+              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-blue-400 group-hover:bg-blue-500/10 transition-colors">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
@@ -65,7 +65,7 @@ const Contact = () => {
             </div>
             
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-accent group-hover:bg-accent/10 transition-colors">
+              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-blue-400 group-hover:bg-blue-500/10 transition-colors">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
@@ -75,7 +75,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-accent group-hover:bg-accent/10 transition-colors">
+              <div className="w-14 h-14 rounded-full glass-card flex items-center justify-center text-blue-400 group-hover:bg-blue-500/10 transition-colors">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
@@ -117,7 +117,7 @@ const Contact = () => {
             
             <button 
               type="submit" 
-              className="w-full py-4 bg-accent hover:bg-[#b5952f] text-primary-dark font-bold rounded-lg uppercase tracking-widest transition-all duration-300 flex justify-center items-center gap-3 group shadow-[0_4px_14px_rgba(212,175,55,0.4)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.6)] hover:-translate-y-1"
+              className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-700 hover:brightness-110 text-white font-bold rounded-lg uppercase tracking-widest transition-all duration-300 flex justify-center items-center gap-3 group shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.5)] hover:-translate-y-1"
             >
               <span>Submit Inquiry</span>
               <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
