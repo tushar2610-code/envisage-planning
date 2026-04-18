@@ -1,0 +1,6 @@
+com\envisage\backend\repository\ProjectRepository.class
+com\envisage\backend\config\CloudinaryConfig.class
+com\envisage\backend\EnvisageBackendApplication.class
+com\envisage\backend\controller\ProjectController.class
+com\envisage\backend\model\Project.class
+com\envisage\backend\service\CloudinaryService.class

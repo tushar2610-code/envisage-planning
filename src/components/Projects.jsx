@@ -1,31 +1,34 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useModalStore } from '../store/useModalStore';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    title: "Urban Skyline",
-    category: "Master Planning",
-    image: "/assets/hero-bg.png",
-  },
-  {
-    title: "Corporate Hub",
-    category: "Commercial Architecture",
-    image: "/assets/project-commercial.png",
-  },
-  {
-    title: "Modern Villa",
-    category: "Residential Architecture",
-    image: "/assets/project-residential.png",
-  }
-];
+const API_URL = "http://localhost:8080/api/projects";
 
 const Projects = () => {
   const containerRef = useRef(null);
+  const { openModal } = useModalStore();
+
+  const { data: projects = [], isLoading } = useQuery({
+    queryKey: ['projects'],
+    queryFn: async () => {
+      try {
+        const res = await axios.get(API_URL);
+        return res.data;
+      } catch (err) {
+        // Fallback or handle error silently layout-wise
+        return [];
+      }
+    }
+  });
 
   useEffect(() => {
+    if (isLoading || projects.length === 0) return;
+
     let ctx = gsap.context(() => {
       const section = containerRef.current;
       
@@ -48,7 +51,7 @@ const Projects = () => {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isLoading, projects]);
 
   return (
     <section ref={containerRef} id="projects" className="py-32 px-6 bg-gradient-to-br from-[#020617] via-[#0B1D3A] to-[#132F5B]">
@@ -65,45 +68,53 @@ const Projects = () => {
         </div>
 
         {/* Project Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="project-card relative rounded-2xl overflow-hidden group cursor-pointer aspect-[4/5] md:aspect-[3/4]"
-            >
-              {/* Background Image with Hover Zoom */}
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out xl:group-hover:scale-[1.05]"
-              />
-              
-              {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-[#0B1D3A]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-              
-              {/* Overlay Text Content */}
-              <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-out">
-                  <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest block mb-2 drop-shadow-md">
-                    {project.category}
-                  </span>
-                  <h3 className="text-3xl font-bold font-heading text-white drop-shadow-lg">
-                    {project.title}
-                  </h3>
-                  
-                  {/* Subtle divider line that expands on hover */}
-                  <div className="w-12 h-[2px] bg-blue-500/50 mt-6 mb-2 group-hover:w-full group-hover:bg-blue-500 transition-all duration-500" />
-                  
-                  {/* Explore Text */}
-                  <div className="flex items-center gap-2 text-white/70 overflow-hidden h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:pt-2 transition-all duration-300 delay-100">
-                    <span className="text-xs uppercase tracking-widest font-medium">View Project</span>
-                    <span className="text-blue-400">→</span>
+        {isLoading ? (
+          <div className="flex justify-center"><div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div></div>
+        ) : projects.length === 0 ? (
+          <div className="text-center text-white/50">No projects to display yet. Check back soon.</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div 
+                key={project.id || index}
+                onClick={() => openModal(project)}
+                className="project-card relative rounded-2xl overflow-hidden group cursor-pointer aspect-[4/5] md:aspect-[3/4]"
+              >
+                {/* Background Image with Hover Zoom */}
+                <img 
+                  src={project.thumbnailUrl || '/assets/hero-bg.png'} 
+                  alt={project.title} 
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out xl:group-hover:scale-[1.1]"
+                />
+                
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-[#0B1D3A]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                
+                {/* Overlay Text Content */}
+                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
+                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                    <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest block mb-2 drop-shadow-md">
+                      {project.category}
+                    </span>
+                    <h3 className="text-3xl font-bold font-heading text-white drop-shadow-lg">
+                      Location - {project.location || project.title}
+                    </h3>
+                    
+                    {/* Subtle divider line that expands on hover */}
+                    <div className="w-12 h-[2px] bg-blue-500/50 mt-6 mb-2 group-hover:w-full group-hover:bg-blue-500 transition-all duration-500" />
+                    
+                    {/* Explore Text */}
+                    <div className="flex items-center gap-2 text-white/70 overflow-hidden h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:pt-2 transition-all duration-300 delay-100">
+                      <span className="text-xs uppercase tracking-widest font-medium">View Project</span>
+                      <span className="text-blue-400">→</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
